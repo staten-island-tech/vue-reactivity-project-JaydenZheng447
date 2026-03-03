@@ -1,14 +1,4 @@
 <template>
-  <div>
-    <RouterView />
-  </div>
-</template>
-
-<script setup></script>
-
-<style scoped></style>
-
-<!-- <template>
   <div class="container">
     <h1>Cookie Clicker</h1>
     <h2>{{ count }}</h2>
@@ -36,4 +26,4 @@ img {
   justify-content: center;
   height: 40vh;
 }
-</style> -->
+</style>
