@@ -35,16 +35,16 @@
     ''
     <h2>Amendment 3: Cabinet Positions</h2>
     <div class="subContainer">
-      <button>&#8592;</button>
-      <p>{{ s3 }}</p>
-      <button>&#8594;</button>
+      <button @click="s3_arrow('left')">&#8592;</button>
+      <span>{{ s3 }}</span>
+      <button @click="s3_arrow('right')">&#8594;</button>
     </div>
 
     <h2>Amendment 4: Veto Limitations</h2>
     <div class="subContainer">
-      <button>&#8592;</button>
+      <button @click="s4_arrow('left')">&#8592;</button>
       <p>{{ s4 }}</p>
-      <button>&#8594;</button>
+      <button @click="s4_arrow('right')">&#8594;</button>
     </div>
     <RouterLink to="/test-view">Test Views</RouterLink>
   </div>
@@ -78,30 +78,45 @@ let s4_array = [
   'The Presidential veto shall be abolished',
 ]
 
-let s1 = ''
-let s2 = s2_array[s2_val]
-let s3 = s3_array[s3_val]
-let s4 = s4_array[s4_val]
+let s1 = ref('')
+let s2 = ref(s2_array[s2_val])
+let s3 = ref(s3_array[s3_val])
+let s4 = ref(s4_array[s4_val])
 
 function s2_arrow(input) {
   console.log(input)
   if (input === 'left') {
     if (s2_val > 0) {
       s2_val -= 1
-      s2 = s2_array[s2_val]
+      s2.value = s2_array[s2_val]
+      console.log('Expected amendment: ' + s2)
+      console.log('Expected amendment: ' + s2_array[s2_val])
     } else {
+      console.log('Array length: ' + s2_array.length)
+      console.log('Array iteration: ' + (s2_val + 1))
       console.log('Desired value out of range')
+      console.log('Expected amendment: ' + s2)
+      console.log('Expected amendment: ' + s2_array[s2_val])
     }
   } else if (input === 'right') {
-    if (s2_val < s2_array.size) {
+    if (s2_val < s2_array.length - 1) {
       s2_val += 1
-      s2 = s2_array[s2_val]
+      s2.value = s2_array[s2_val]
+
+      console.log('Expected amendment: ' + s2)
+      console.log('Expected amendment: ' + s2_array[s2_val])
     } else {
+      console.log('Array length: ' + s2_array.length)
+      console.log('Array iteration: ' + (s2_val + 1))
       console.log('Desired value out of range')
+      console.log('Expected amendment: ' + s2)
     }
   } else {
-    s2 = 'An unexpected error has occured'
-    console.log('An unexpected error has occured on Amendment 2')
+    s2.value = 'An unexpected error has occured'
+    console.log('An unexpected error has occured on Amendment 3')
+    console.log('Array length: ' + s2_array.length)
+    console.log('Array iteration: ' + (s2_val + 1))
+    console.log('Expected amendment: ' + s2)
   }
 }
 
@@ -109,20 +124,34 @@ function s3_arrow(input) {
   if (input === 'left') {
     if (s3_val > 0) {
       s3_val -= 1
-      s3 = s3_array[s3_val]
+      s3.value = s3_array[s3_val]
+      console.log('Expected amendment: ' + s3)
+      console.log('Expected amendment: ' + s3_array[s3_val])
     } else {
+      console.log('Array length: ' + s3_array.length)
+      console.log('Array iteration: ' + (s3_val + 1))
       console.log('Desired value out of range')
+      console.log('Expected amendment: ' + s3)
     }
   } else if (input === 'right') {
-    if (s3_val < s3_array.size) {
+    if (s3_val < s3_array.length - 1) {
       s3_val += 1
-      s3 = s3_array[s3_val]
+      s3.value = s3_array[s3_val]
+      console.log('Expected amendment: ' + s3)
+      console.log('Expected amendment: ' + s3_array[s3_val])
     } else {
+      console.log('Array length: ' + s3_array.length)
+      console.log('Array iteration: ' + (s3_val + 1))
       console.log('Desired value out of range')
+      console.log('Expected amendment: ' + s3)
     }
   } else {
-    s3 = 'An unexpected error has occured'
+    s3.value = 'An unexpected error has occured'
     console.log('An unexpected error has occured on Amendment 3')
+    console.log('Array length: ' + s3_array.length)
+    console.log('Array iteration: ' + (s3_val + 1))
+
+    console.log('Expected amendment: ' + s3)
   }
 }
 
@@ -130,86 +159,35 @@ function s4_arrow(input) {
   if (input === 'left') {
     if (s4_val > 0) {
       s4_val -= 1
-      s4 = s4_array[s4_val]
+      s4.value = s4_array[s4_val]
+      console.log('Expected amendment: ' + s4)
+      console.log('Expected amendment: ' + s4_array[s4_val])
     } else {
+      console.log('Array length: ' + s4_array.length)
+      console.log('Array iteration: ' + (s4_val + 1))
       console.log('Desired value out of range')
+      console.log('Expected amendment: ' + s4)
     }
   } else if (input === 'right') {
-    if (s4_val < s4_array.size) {
+    if (s4_val < s4_array.length - 1) {
       s4_val += 1
-      s4 = s4_array[s4_val]
+      s4.value = s4_array[s4_val]
+      console.log('Expected amendment: ' + s4)
+      console.log('Expected amendment: ' + s4_array[s4_val])
     } else {
+      console.log('Array length: ' + s4_array.length)
+      console.log('Array iteration: ' + (s4_val + 1))
       console.log('Desired value out of range')
+      console.log('Expected amendment: ' + s4)
     }
   } else {
-    s4 = 'An unexpected error has occured'
-    console.log('An unexpected error has occured on Amendment 2')
+    s4.value = 'An unexpected error has occured'
+    console.log('An unexpected error has occured on Amendment 4')
+    console.log('Array length: ' + s4_array.length)
+    console.log('Array iteration: ' + (s4_val + 1))
+    console.log('Expected amendment: ' + s4)
   }
 }
-
-/* 
-function s2_arrow(input) {
-  if (input === 'left') {
-    if (s2_val > 0) {
-      s2_val.value--
-      s2 = s2_array[s2_val]
-    } else {
-      console.log('Desired value out of range')
-    }
-  } else if (input === 'right') {
-    if (s2_val < s2_array.size) {
-      s2_val.value++
-      s2 = s2_array[s2_val]
-    } else {
-      console.log('Desired value out of range')
-    }
-  } else {
-    s2 = 'An unexpected error has occured'
-    console.log('An unexpected error has occured on Amendment 2')
-  }
-}
-
-function s3_arrow(input) {
-  if (input === 'left') {
-    if (s3_val > 0) {
-      s3_val.value--
-      s3 = s3_array[s3_val]
-    } else {
-      console.log('Desired value out of range')
-    }
-  } else if (input === 'right') {
-    if (s3_val < s3_array.size) {
-      s3_val.value++
-      s3 = s3_array[s3_val]
-    } else {
-      console.log('Desired value out of range')
-    }
-  } else {
-    s3 = 'An unexpected error has occured'
-    console.log('An unexpected error has occured on Amendment 3')
-  }
-}
-
-function s4_arrow(input) {
-  if (input === 'left') {
-    if (s4_val > 0) {
-      s4_val.value--
-      s4 = s4_array[s4_val]
-    } else {
-      console.log('Desired value out of range')
-    }
-  } else if (input === 'right') {
-    if (s4_val < s4_array.size) {
-      s4_val.value++
-      s4 = s4_array[s4_val]
-    } else {
-      console.log('Desired value out of range')
-    }
-  } else {
-    s4 = 'An unexpected error has occured'
-    console.log('An unexpected error has occured on Amendment 2')
-  }
-} */
 
 function increment() {
   count.value -= 5
@@ -251,8 +229,7 @@ function preview() {}
   border: 10px;
   border-color: black;
   margin: 10px;
-  color: blue;
-  min-width: 15 vw;
+  color: red;
 }
 
 button {
