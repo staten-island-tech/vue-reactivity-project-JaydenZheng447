@@ -50,7 +50,7 @@
       Click here to see if Parliament will accept your new Constitution
     </button>
     <div v-if="showResults === true">
-      Your new Constitution is project to {{ DidYouPassOrFail }}. <br />You are expected to have a
+      Your new Constitution is projected to {{ DidYouPassOrFail }}. <br />You are expected to have a
       total of {{ MP_votes }} out of 250 votes and the following parties will likely support you:
       {{ Parties_that_support_you }}
     </div>
