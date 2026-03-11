@@ -14,7 +14,7 @@
     <span class="approvalBar">
       PFJP (Democratic Socialist) Approval: <span>{{ Democratic_Socialism_love }}%</span>
     </span>
-    <span class="approvalBar" > 
+    <span class="approvalBar">
       WPB (Ethnic Minority) Approval: <span>{{ Ethnic_love }}%</span>
     </span>
   </div>
@@ -23,7 +23,7 @@
     <h1 class="marginClass">Amendments</h1>
     <h2>Amendment 1: The Supreme Court</h2>
     <div class="subContainer">
-      <button @click="leftButtonClick(1) ">&#8592;</button>
+      <button @click="leftButtonClick(1)">&#8592;</button>
       <p>{{ s1 }}</p>
       <button @click="rightButtonClick(1)">&#8594;</button>
     </div>
@@ -254,6 +254,8 @@ let MP_votes = ref(0)
 let Parties_that_support_you = ref([])
 let DidYouPassOrFail = ref('FAIL')
 function finalVoteCalculator() {
+  MP_votes.value = 0
+  Parties_that_support_you.value = []
   showResultFunction()
   if (Conservative_love.value > 50) {
     MP_votes.value += 62
@@ -307,7 +309,6 @@ function showResultFunction() {
 </script>
 
 <style scoped>
-
 .container {
   display: flex;
   flex-direction: column;
